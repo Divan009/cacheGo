@@ -1,6 +1,6 @@
 # cacheGo
 
-#### Use this for cache_b.go 
+#### Use this for cache_b_test.go 
 So here I have added cache
 
 go test -v -run=TestConcurrent
