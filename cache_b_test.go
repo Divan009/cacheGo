@@ -57,6 +57,7 @@ func TestSequential(t *testing.T) {
 	}
 }
 
+//call all the URL at once
 func TestConcurrent(t *testing.T) {
 	cache := NewCache()
 	var n sync.WaitGroup
