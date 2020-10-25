@@ -43,19 +43,19 @@ func incomingURLs() <-chan string {
 	return ch
 }
 
-func TestSequential(t *testing.T) {
-	cache := NewCache()
-	for url := range incomingURLs() {
-		func(url string) {
-			start := time.Now()
-			value, err := cache.Get(url, httpGetBody(url))
-			if err != nil {
-				t.Error(err)
-			}
-			fmt.Printf("%s, %s, %d bytes\n", url, time.Since(start), len(value))
-		}(url)
-	}
-}
+// func TestSequential(t *testing.T) {
+// 	cache := NewCache()
+// 	for url := range incomingURLs() {
+// 		func(url string) {
+// 			start := time.Now()
+// 			value, err := cache.Get(url, httpGetBody(url))
+// 			if err != nil {
+// 				t.Error(err)
+// 			}
+// 			fmt.Printf("%s, %s, %d bytes\n", url, time.Since(start), len(value))
+// 		}(url)
+// 	}
+// }
 
 //call all the URL at once
 func TestConcurrent(t *testing.T) {
